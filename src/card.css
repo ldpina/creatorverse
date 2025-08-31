@@ -1,0 +1,133 @@
+/* Card.css */
+.Card {
+  position: relative;
+  width: 300px;
+  min-height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  align-items: flex-end;
+  margin: 1rem;
+}
+
+.Card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.Card article {
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header with name + social icons */
+.card-header-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-header-name h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* Social media icons */
+.card-header-name span {
+  font-size: 1.2rem;
+  margin-left: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.card-header-name .fa-youtube:hover {
+  color: #ff0000;
+}
+.card-header-name .fa-twitter:hover {
+  color: #1DA1F2;
+}
+.card-header-name .fa-instagram:hover {
+  color: #E1306C;
+}
+
+/* Edit + info icons */
+.card-header-edit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  gap: 0.75rem;
+}
+
+.card-header-edit a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.card-header-edit a:hover {
+  color: #61dafb; /* React blue for highlight */
+}
+
+/* Description text */
+.card-description {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #f0f0f0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Responsive layout support */
+@media (max-width: 768px) {
+  .Card {
+    width: 100%;
+    min-height: 280px;
+  }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  color: white;
+}
+
+.info-btn {
+  background: #0077ff;
+}
+.info-btn:hover {
+  background: #005ec2;
+}
+
+.edit-btn {
+  background: #f39c12;
+}
+.edit-btn:hover {
+  background: #c87f0a;
+}
+
