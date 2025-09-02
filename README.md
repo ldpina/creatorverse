@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![creatorverse]()
+![creatorverse](https://github.com/ldpina/creatorverse/blob/master/creatorverse.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ScreentoGif
