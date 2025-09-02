@@ -4,7 +4,6 @@ import ShowCreators from './pages/showCreators'
 import AddCreator from './pages/addCreator'
 import EditCreator from './pages/editCreator'
 import ViewCreator from './pages/viewCreator'
-import { supabase } from './client'
 import './App.css'
 import { Link } from 'react-router-dom';
 
@@ -14,18 +13,28 @@ const App = () => {
   const [creators, setCreators] = useState([])
 
   useEffect(() => {
-    
-    const fetchCreators = async () => {
-      const {data} = await supabase
-      .from('creators')
-      .select()
-      .order('created_at', { ascending: true })
+  const load = async () => {
+    const base = process.env.REACT_APP_SUPABASE_URL;
+    const key  = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
-      setCreators(data)
+    const res = await fetch(`${base}/rest/v1/creators?select=*`, {
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+      },
+    });
+
+    if (!res.ok) {
+      console.error('Failed to fetch creators', await res.text());
+      return;
     }
 
-    fetchCreators()
-  }, [])
+    const data = await res.json();
+    setCreators(data);
+  };
+
+  load();
+}, []);
 
 
  let element = useRoutes([
@@ -39,7 +48,6 @@ const App = () => {
   return ( 
 
     <div className="App">
-
       <header>
         <h1>Creatorverse</h1>
         <nav>

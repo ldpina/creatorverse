@@ -2,50 +2,51 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../card.css'
 
-const Card = (props) => {
-  const goToYouTube = () => {
-    window.open("https://www.youtube.com/@" + props.youtube, "_blank")
-  }
-  const goToTwitter = () => {
-    window.open("https://www.twitter.com/" + props.twitter, "_blank")
-  }
-  const goToInstagram = () => {
-    window.open("https://www.instagram.com/" + props.instagram, "_blank")
-  }
+const truncate = (text, maxLength = 80) => {
+  if (!text) return "";
+  return text.length > maxLength ? text.substring(0, maxLength) + "…" : text;
+};
 
+
+
+const Card = (props) => {
   return (
     <div
       className="Card"
       style={{ backgroundImage: `url(${props.image})` }}
     >
-      <div className="overlay">
+      <article className="overlay">
         <div className="card-header-name">
           <h3>{props.name}</h3>
-          {props.youtube && (
-            <span className="fa-brands fa-youtube" onClick={goToYouTube}></span>
-          )}
-          {props.twitter && (
-            <span className="fa-brands fa-twitter" onClick={goToTwitter}></span>
-          )}
-          {props.instagram && (
-            <span className="fa-brands fa-instagram" onClick={goToInstagram}></span>
-          )}
         </div>
 
+        {/* Description preview */}
         <div className="card-description">
-          <p>{props.description}</p>
-        </div>
+          <p>{truncate(props.description, 40)}</p>
+       </div>
 
         {/* Action buttons */}
         <div className="card-actions">
+          
+        {props.url && (
+          <a
+            href={props.url.startsWith('http') ? props.url : `https://${props.url}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn visit-btn"
+          >
+            Visit
+          </a>
+        )}
+
           <Link to={`/creators/${props.id}`} className="btn info-btn">
-            <i className="fa-solid fa-circle-info"></i> View
+            View
           </Link>
           <Link to={`/creators/${props.id}/edit`} className="btn edit-btn">
-            <i className="fa-solid fa-pen"></i> Edit
+            Edit
           </Link>
         </div>
-      </div>
+      </article>
     </div>
   )
 }

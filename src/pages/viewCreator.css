@@ -1,0 +1,92 @@
+/* Overall container */
+.ViewCreator {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1f2937;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  color: #f9fafb;
+}
+
+/* Top actions row */
+.vc-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Edit + Delete buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.vc-edit {
+  background: #3b82f6;
+  color: #fff;
+}
+.vc-edit:hover { background: #2563eb; }
+
+.vc-delete {
+  background: #dc2626 !important;
+  color: #fff;
+}
+.vc-delete:hover { background: #b91c1c !important; }
+
+.vc-main {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+/* Creator image */
+.creator-image img {
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Info section */
+.creator-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.creator-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.creator-info p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.social-links a {
+  display: inline-block;
+  background: #10b981;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.social-links a:hover {
+  background: #059669;
+}

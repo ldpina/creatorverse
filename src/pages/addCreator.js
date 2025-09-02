@@ -4,9 +4,9 @@ import { supabase } from '../client'
 const AddCreator = () => {
   const [creator, setCreator] = useState({
     name: "",
-    url: "",          // ✅ single url
+    url: "",         
     description: "",
-    image: ""         // maps to imageURL column
+    image: ""         
   });
 
   const handleChange = (event) => {
@@ -19,9 +19,9 @@ const AddCreator = () => {
 
     const payload = {
       name: creator.name,
-      url: creator.url,             // ✅ store single url
+      url: creator.url,             
       description: creator.description,
-      imageURL: creator.image       // ✅ map state.image → DB column imageURL
+      imageURL: creator.image       
     };
 
     const { data, error } = await supabase.from('creators').insert([payload]);
